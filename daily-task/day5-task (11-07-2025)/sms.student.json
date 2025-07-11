@@ -1,0 +1,61 @@
+[{
+  "_id": "s001",
+  "name": "rajesh",
+  "dateofbirth": {
+    "$date": "1980-12-17T00:00:00.000Z"
+  },
+  "city": "kolkata",
+  "qualification": "graduate",
+  "email": "rajesh@gmail.com",
+  "phone": "09830978900"
+},
+{
+  "_id": "s002",
+  "name": "john",
+  "dateofbirth": {
+    "$date": {
+      "$numberLong": "-662169600000"
+    }
+  },
+  "city": "hyderabad",
+  "qualification": "postgraduate",
+  "email": "john@yahoo.com",
+  "phone": "9833978933"
+},
+{
+  "_id": "s003",
+  "name": "kunal",
+  "dateofbirth": {
+    "$date": {
+      "$numberLong": "-91843200000"
+    }
+  },
+  "city": "pune",
+  "qualification": "postgraduate",
+  "email": "kunal@gmail.com",
+  "phone": "09830922900"
+},
+{
+  "_id": "s004",
+  "name": "maya",
+  "dateofbirth": {
+    "$date": "1990-12-17T00:00:00.000Z"
+  },
+  "city": "kolkata",
+  "qualification": "graduate",
+  "email": "maya.com",
+  "phone": "09830765900"
+},
+{
+  "_id": "s005",
+  "name": "jadeja",
+  "dateofbirth": {
+    "$date": {
+      "$numberLong": "-944870400000"
+    }
+  },
+  "city": "kolkata",
+  "qualification": "postgraduate",
+  "email": "jadeja@yahoo.com",
+  "phone": "09837865432"
+}]
