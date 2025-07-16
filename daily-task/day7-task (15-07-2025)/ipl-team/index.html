@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IPL Application</title>
+    <style>
+      td,
+      th {
+        padding: 5px 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h3 style="text-align: center">IPL Application</h3>
+    </header>
+
+    <main>
+      <div style="display: flex; justify-content: center">
+        <form method="post" action="#">
+          <table
+            style="
+              background-color: aquamarine;
+              padding: 20px;
+              border: 1px solid black;
+            "
+          >
+            <th colspan="2" style="background-color: steelblue; color: white">
+              <h3>Player Details</h3>
+            </th>
+            <tr>
+              <td>Name</td>
+              <td>
+                <input type="text" placeholder="Enter your name" required />
+              </td>
+            </tr>
+            <tr>
+              <td>DOB</td>
+              <td><input type="date" required /></td>
+            </tr>
+            <tr>
+              <td>Age</td>
+              <td>
+                <input type="text" placeholder="Enter your age" required />
+              </td>
+            </tr>
+            <tr>
+              <td>Email Id</td>
+              <td>
+                <input type="email" placeholder="example@domain.com" required />
+              </td>
+            </tr>
+            <tr>
+              <td>Country</td>
+              <td>
+                <select name="country" id="" required>
+                  <option value="india">India</option>
+                  <option value="USA">USA</option>
+                  <option value="japan">Japan</option>
+                </select>
+              </td>
+            </tr>
+            <td>Skills</td>
+            <td>
+              <input type="checkbox" required />
+              <label for="skills">Batting</label>
+              <input type="checkbox" required />
+              <label for="skills">Bowling</label>
+            </td>
+            <tr>
+              <td>Batting Style</td>
+              <td>
+                <input type="radio" name="bat-style" id="right-handed" />
+                <label for="bat-style">Right Handed</label>
+                <input type="radio" name="bat-style" id="left-handed" />
+                <label for="bat-style">Left Handed</label>
+              </td>
+            </tr>
+            <tr>
+              <td>Bowling Style</td>
+              <td>
+                <input type="radio" name="bowl-style" id="right-handed" />
+                <label for="bowl-style">Right Handed</label>
+                <input type="radio" name="bowl-style" id="left-handed" />
+                <label for="bowl-style">Left Handed</label>
+              </td>
+            </tr>
+            <tr>
+              <td>Matches</td>
+              <td>
+                <input type="text" placeholder="Matches Played" required />
+              </td>
+            </tr>
+            <tr>
+              <td>Runs</td>
+              <td>
+                <input type="text" placeholder="Total Runs Scored" required />
+              </td>
+            </tr>
+            <tr>
+              <td>Wickets</td>
+              <td><input type="text" placeholder="Wickets" required /></td>
+            </tr>
+            <tr>
+              <td>Achievements</td>
+              <td>
+                <textarea name="achievements" id="achievements"></textarea>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <input type="reset" value="Reset" />
+                <input type="submit" value="Submit" />
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>
