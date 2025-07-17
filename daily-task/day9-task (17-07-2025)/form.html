@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IPL Application</title>
+    <style>
+      td,
+      th {
+        padding: 5px 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h3 style="text-align: center">IPL Application</h3>
+    </header>
+
+    <main>
+      <div style="display: flex; justify-content: center">
+        <form id="playerForm" method="post" action="#">
+          <table
+            style="
+              background-color: aquamarine;
+              padding: 20px;
+              border: 1px solid black;
+            "
+          >
+            <th colspan="2" style="background-color: steelblue; color: white">
+              <h3>Player Details</h3>
+            </th>
+            <tr>
+              <td>Name</td>
+              <td>
+                <input
+                  type="text"
+                  id="name"
+                  placeholder="Enter your name"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>DOB</td>
+              <td><input type="date" id="dob" required /></td>
+            </tr>
+            <tr>
+              <td>Age</td>
+              <td>
+                <input
+                  type="text"
+                  id="age"
+                  placeholder="Enter your age"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Email Id</td>
+              <td>
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="example@domain.com"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Country</td>
+              <td>
+                <select name="country" id="country" required>
+                  <option value="">Select Country</option>
+                  <option value="india">India</option>
+                  <option value="USA">USA</option>
+                  <option value="japan">Japan</option>
+                </select>
+              </td>
+            </tr>
+            <td>Skills</td>
+            <td>
+              <input
+                type="checkbox"
+                id="batting"
+                name="skills"
+                value="batting"
+              />
+              <label for="batting">Batting</label>
+              <input
+                type="checkbox"
+                id="bowling"
+                name="skills"
+                value="bowling"
+              />
+              <label for="bowling">Bowling</label>
+            </td>
+            <tr>
+              <td>Batting Style</td>
+              <td>
+                <input
+                  type="radio"
+                  name="bat-style"
+                  id="right-handed-bat"
+                  value="right"
+                />
+                <label for="right-handed-bat">Right Handed</label>
+                <input
+                  type="radio"
+                  name="bat-style"
+                  id="left-handed-bat"
+                  value="left"
+                />
+                <label for="left-handed-bat">Left Handed</label>
+              </td>
+            </tr>
+            <tr>
+              <td>Bowling Style</td>
+              <td>
+                <input
+                  type="radio"
+                  name="bowl-style"
+                  id="right-handed-bowl"
+                  value="right"
+                />
+                <label for="right-handed-bowl">Right Handed</label>
+                <input
+                  type="radio"
+                  name="bowl-style"
+                  id="left-handed-bowl"
+                  value="left"
+                />
+                <label for="left-handed-bowl">Left Handed</label>
+              </td>
+            </tr>
+            <tr>
+              <td>Matches</td>
+              <td>
+                <input
+                  type="text"
+                  id="matches"
+                  placeholder="Matches Played"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Runs</td>
+              <td>
+                <input
+                  type="text"
+                  id="runs"
+                  placeholder="Total Runs Scored"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Wickets</td>
+              <td>
+                <input
+                  type="text"
+                  id="wickets"
+                  placeholder="Wickets"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Achievements</td>
+              <td>
+                <textarea
+                  name="achievements"
+                  id="achievements"
+                  required
+                ></textarea>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <input type="reset" value="Reset" />
+                <input type="submit" value="Submit" />
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
+    </main>
+    <script>
+      document.getElementById("playerForm").onsubmit = function (e) {
+        e.preventDefault();
+        // Get values
+        const name = document.getElementById("name").value.trim();
+        const dob = document.getElementById("dob").value;
+        const age = document.getElementById("age").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const country = document.getElementById("country").value;
+        const batting = document.getElementById("batting").checked;
+        const bowling = document.getElementById("bowling").checked;
+        const batStyle = document.querySelector(
+          'input[name="bat-style"]:checked'
+        );
+        const bowlStyle = document.querySelector(
+          'input[name="bowl-style"]:checked'
+        );
+        const matches = document.getElementById("matches").value.trim();
+        const runs = document.getElementById("runs").value.trim();
+        const wickets = document.getElementById("wickets").value.trim();
+        const achievements = document
+          .getElementById("achievements")
+          .value.trim();
+
+        // All fields required
+        if (
+          !name ||
+          !dob ||
+          !age ||
+          !email ||
+          !country ||
+          !matches ||
+          !runs ||
+          !wickets ||
+          !achievements
+        ) {
+          alert("All fields are mandatory.");
+          return false;
+        }
+        if (!batting && !bowling) {
+          alert("Select at least one skill.");
+          return false;
+        }
+        if (!batStyle) {
+          alert("Select a batting style.");
+          return false;
+        }
+        if (!bowlStyle) {
+          alert("Select a bowling style.");
+          return false;
+        }
+        // Name: alphabets only
+        if (!/^[A-Za-z ]+$/.test(name)) {
+          alert("Player name should contain alphabets only.");
+          return false;
+        }
+        // Age, Matches, Runs, Wickets: numbers only
+        if (!/^\d+$/.test(age)) {
+          alert("Age should be a number.");
+          return false;
+        }
+        if (!/^\d+$/.test(matches)) {
+          alert("Matches played should be a number.");
+          return false;
+        }
+        if (!/^\d+$/.test(runs)) {
+          alert("Runs scored should be a number.");
+          return false;
+        }
+        if (!/^\d+$/.test(wickets)) {
+          alert("Wickets should be a number.");
+          return false;
+        }
+        // Email format
+        if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+          alert("Enter a valid email address.");
+          return false;
+        }
+        // If all validations pass, redirect to success page
+        window.location.href = "sucess.html";
+        return false;
+      };
+    </script>
+  </body>
+</html>

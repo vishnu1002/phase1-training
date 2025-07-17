@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Selector</title>
+    <style>
+      body {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Select a Background Color</h2>
+    <form id="colorForm">
+      <input type="radio" name="color" id="red" value="red" />
+      <label for="red">Red</label>
+      <input type="radio" name="color" id="green" value="green" />
+      <label for="green">Green</label>
+      <input type="radio" name="color" id="blue" value="blue" />
+      <label for="blue">Blue</label>
+      <input type="radio" name="color" id="yellow" value="yellow" />
+      <label for="yellow">Yellow</label>
+      <input type="radio" name="color" id="white" value="white" />
+      <label for="white">White</label>
+      <br /><br />
+      <label for="customColor">Pick a custom color: </label>
+      <input type="color" id="customColor" name="customColor" />
+    </form>
+    <script>
+      document
+        .getElementById("colorForm")
+        .addEventListener("change", function (e) {
+          if (e.target.name === "color") {
+            document.body.style.backgroundColor = e.target.value;
+            document.getElementById("customColor").value = "";
+          }
+        });
+      document
+        .getElementById("customColor")
+        .addEventListener("input", function (e) {
+          document.body.style.backgroundColor = e.target.value;
+          // Deselect all radio buttons
+          const radios = document.querySelectorAll('input[name="color"]');
+          radios.forEach((r) => (r.checked = false));
+        });
+    </script>
+  </body>
+</html>
