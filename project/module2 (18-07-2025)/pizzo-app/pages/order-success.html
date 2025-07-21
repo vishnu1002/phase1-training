@@ -21,11 +21,11 @@
           <h5 class="mb-3">Order Summary</h5>
           <div class="d-flex justify-content-between mb-2">
             <span>Order #</span>
-            <span><strong>PPZ12345</strong></span>
+            <span><strong id="orderSuccessId">PPZ12345</strong></span>
           </div>
           <div class="d-flex justify-content-between mb-2">
             <span>Total</span>
-            <span><strong>$36.72</strong></span>
+            <span><strong id="orderSuccessTotal">$36.72</strong></span>
           </div>
           <div class="d-flex justify-content-between mb-2">
             <span>Payment</span>
@@ -35,5 +35,18 @@
         <a href="menu.html" class="btn btn-menu mt-3">Back to Menu</a>
       </div>
     </main>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const orders = JSON.parse(localStorage.getItem("orders")) || [];
+        if (orders.length > 0) {
+          const lastOrder = orders[orders.length - 1];
+          document.getElementById("orderSuccessId").textContent =
+            lastOrder.orderId;
+          document.getElementById("orderSuccessTotal").textContent = `$${Number(
+            lastOrder.totalPrice
+          ).toFixed(2)}`;
+        }
+      });
+    </script>
   </body>
 </html>
