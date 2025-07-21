@@ -36,6 +36,15 @@ document.getElementById("paymentForm").addEventListener("submit", function (e) {
   }
   // Simulate payment processing
   setTimeout(function () {
+    // Move pendingOrder to orders
+    const pendingOrder = JSON.parse(localStorage.getItem("pendingOrder"));
+    if (pendingOrder) {
+      let orders = JSON.parse(localStorage.getItem("orders")) || [];
+      orders.push(pendingOrder);
+      localStorage.setItem("orders", JSON.stringify(orders));
+      localStorage.removeItem("pendingOrder");
+      localStorage.removeItem("cart"); // Optionally clear cart after payment
+    }
     document.getElementById("paymentSuccess").style.display = "block";
     setTimeout(function () {
       window.location.href = "order-success.html";

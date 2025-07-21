@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     cartBody.innerHTML = "";
     cart.forEach((item, idx) => {
-      const itemSubtotal = item.price * item.qty;
+      const itemSubtotal = Number(item.price) * Number(item.qty);
       subtotal += itemSubtotal;
       cartBody.innerHTML += `
         <tr>
@@ -31,8 +31,8 @@ document.addEventListener("DOMContentLoaded", function () {
         item.name
       }" style="width:60px;height:60px;object-fit:cover;border-radius:0.5rem;"/></td>
           <td>${item.name}</td>
-          <td>$${item.price.toFixed(2)}</td>
-          <td>${item.qty}</td>
+          <td>$${Number(item.price).toFixed(2)}</td>
+          <td>${Number(item.qty)}</td>
           <td>$${itemSubtotal.toFixed(2)}</td>
           <td><button class="btn btn-link text-danger delete-item" data-name="${
             item.name
@@ -72,26 +72,26 @@ document
     if (!cart.length) return;
 
     // Calculate total and create order object
-    let total = 0;
+    let subtotal = 0;
     const items = cart.map((item) => {
-      const subtotal = item.price * item.qty;
-      total += subtotal;
+      const itemSubtotal = Number(item.price) * Number(item.qty);
+      subtotal += itemSubtotal;
       return {
         name: item.name,
-        quantity: item.qty, // FIX: use item.qty
-        price: item.price,
+        quantity: Number(item.qty),
+        price: Number(item.price),
       };
     });
+    const gst = subtotal * 0.05;
+    const total = subtotal + gst;
     const order = {
       orderId: "ORD" + Date.now(),
       items,
       totalPrice: total,
     };
 
-    // Save to orders in localStorage
-    let orders = JSON.parse(localStorage.getItem("orders")) || [];
-    orders.push(order);
-    localStorage.setItem("orders", JSON.stringify(orders));
+    // Save to pendingOrder in localStorage
+    localStorage.setItem("pendingOrder", JSON.stringify(order));
 
     // Optionally clear cart
     // localStorage.removeItem('cart');
