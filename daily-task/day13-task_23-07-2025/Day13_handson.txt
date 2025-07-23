@@ -1,0 +1,37 @@
+1. A library needs to develop an online application for two types of users/roles, Adults and children. Both of these users should be able to register an account. Any user who is less than 12 years of age will be registered as a child and they can borrow a "Kids" category book for 10 days, whereas an adult can borrow "Fiction" category books which need to be returned within 7 days.
+ 
+1.Create an interface LibraryUser with the following methods declared,
+Method Name
+registerAccount
+requestBook
+
+2.Create 2 classes "KidUser" and "AdultUser" which implements the LibraryUser interface.
+ 
+3.Both the classes should have two instance variables as specified below.
+age			int
+bookType		String
+
+4.The methods in the KidUser class should perform the following logic. 
+1.	registerAccount : if age < 12, a message displaying “You have successfully registered under a Kids Account” should be displayed in the console. 
+If(age>12), a message displaying, "Sorry, Age must be less than 12 to register as a kid" should be displayed in the console. 
+2.	requestBook : if bookType is "Kids", a message displaying "Book Issued successfully, please return the book within 10 days" should be displayed in the console. 
+else, a message displaying, "You are allowed to take only kids books" should be displayed in the console. 
+5.The methods in the AdultUser class should perform the following logic. 
+
+1.	registerAccount : if age > 12, a message displaying "You have successfully registered under an Adult Account" should be displayed in the console. 
+If age<12, a message displaying, "Sorry, Age must be greater than 12 to register as an adult" should be displayed in the console. 
+2.	requestBook : if bookType is "Fiction", a message displaying "Book Issued successfully, please return the book within 7 days" should be displayed in the console. 
+else, a message displaying, "
+You are allowed to take only adult Fiction books" should be displayed in the console. 
+
+6.Create a class LibraryInterfaceDemo with a main method which performs the below functions,
+
+In the main method, test all the methods.
+
+2.Write a program to read two integer array lists of size 5 each as input and to merge the two arrayLists, sort the merged arraylist in ascending order and fetch the elements at 2nd, 6th and 8th index into a new arrayList and return the final ArrayList.
+
+3.Read student details as input.The details would include name, mark in the given order. The datatype for name is string, mark is float.Create a hashmap that contains name as key and mark as value.Get student name as input and display the student grade.
+1. If Mark is less than 60, then grade is FAIL.
+2. If Mark is greater than or equal to 60, then grade is PASS.
+
+4. Write a program to get integers as input and store in the arraylist. Traverse the input list, if the number is even store in a arraylist called evenNumbersList and oddnumbers in oddNumberList. Print the input list and the lists containing even numbers and odd numbers.
