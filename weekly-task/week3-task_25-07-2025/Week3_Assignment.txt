@@ -1,0 +1,20 @@
+1.Create a class BankAccount in Python with private attributes __accountno,__name, __balance. 
+Add 
+parameterized constructor
+methods:
+deposit(amount)
+withdraw(amount)
+set_accountno
+get_accountno
+set_name
+get_name
+get_balance() 
+set_balance() 
+
+2.How will you define a static method in Python?Explore and give an example.
+
+3.Give examples for dunder methods in Python other than __str__ and __init__ .
+
+4. Explore some supervised and unsupervised models in ML.
+
+5.Implement Stack with class in Python. 
