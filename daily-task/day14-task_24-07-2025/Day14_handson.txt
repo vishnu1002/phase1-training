@@ -1,4 +1,0 @@
-1. Write a python program which defines a function to find maximum of 3 numbers. Read the numbers as input and pass as argument to the function.
-2.Write a python program to read string as input and check whether it is a palindrome.
-3.Write a Java program which performs file copy.
-4.Write a python program to find the number of lines, words and characters in a file.
