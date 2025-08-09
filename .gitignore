@@ -1,0 +1,42 @@
+## Ignore Visual Studio temporary files, build results, and cache
+.vs/
+bin/
+obj/
+TestResults/
+*.user
+*.suo
+*.cache
+*.log
+*.db
+
+## Ignore environment-specific config
+appsettings.Development.json
+appsettings.Local.json
+secrets.json
+
+## Ignore packages & external dependencies
+node_modules/
+wwwroot/lib/
+
+## Ignore publish output
+*.Publish.xml
+.publish/
+publish/
+dist/
+out/
+
+## Ignore NuGet packages (if not restoring from packages.config)
+*.nupkg
+packages/
+
+## Ignore Azure publish profiles
+Properties/PublishProfiles/*.pubxml
+Properties/PublishProfiles/*.pubxml.user
+
+## Ignore Rider / JetBrains
+.idea/
+*.sln.iml
+
+## Ignore Resharper
+_ReSharper*/
+*.DotSettings.user

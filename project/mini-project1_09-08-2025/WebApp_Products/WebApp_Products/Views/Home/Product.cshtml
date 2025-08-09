@@ -1,0 +1,47 @@
+﻿@{
+	ViewData["Title"] = "Product Page";
+}
+
+@model List<ProductModel>
+
+<div class="d-flex flex-column align-items-center text-center">
+	<h1 class="display-4 my-4">Welcome to our Products</h1>
+
+	<a class="btn btn-primary mb-3" asp-area="" asp-controller="Home" asp-action="EditProduct">
+		Add Products
+	</a>
+
+	<table class="table table-bordered text-center w-auto">
+		<thead>
+			<tr>
+				<th>Product Name</th>
+				<th>Description</th>
+				<th>Price</th>
+				<th>Stock</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>@item.Name</td>
+					<td>@item.Description</td>
+					<td>@item.Price</td>
+					<td>@item.Stock</td>
+					<td>
+						<a asp-action="DeleteRow" asp-route-id="@item.Id">
+							<button class="btn btn-outline-danger">Delete</button>
+						</a>
+						<a asp-action="UpdateRow" asp-route-id="">
+							<button class="btn btn-outline-warning">Update </button>
+						</a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+
+	@* <p>Number of Employees: @ViewBag.totalEmp</p>
+	<p>Number of Employees: @ViewData["TotalEmp"]</p> *@
+</div>
