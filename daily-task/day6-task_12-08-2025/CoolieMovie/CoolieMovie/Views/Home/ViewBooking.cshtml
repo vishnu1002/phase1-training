@@ -1,0 +1,55 @@
+﻿@{
+	ViewData["Title"] = "View Booking";
+	var totalBookings = ViewBag.TotalBooking;
+	var avgAge = ViewBag.AvgAge;
+}
+
+@model List<CoolieModel>
+
+<div class="text-center">
+	<h2 class="mt-4">Booking Details</h2>
+	<p>Total Booking: @totalBookings</p>
+	<p>Average Age: @avgAge</p>
+
+	<div>
+		<span>Filter Options: </span>
+		<a asp-action="ViewBooking" asp-route-filter="all" class="btn btn-outline-warning btn-sm">All</a>
+		<a asp-action="ViewBooking" asp-route-filter="male" class="btn btn-outline-warning btn-sm">Male</a>
+		<a asp-action="ViewBooking" asp-route-filter="female" class="btn btn-outline-warning btn-sm">Female</a>
+		<a asp-action="ViewBooking" asp-route-filter="asc" class="btn btn-outline-warning btn-sm">Sort A-Z</a>
+		<a asp-action="ViewBooking" asp-route-filter="desc" class="btn btn-outline-warning btn-sm">Sort Z-A</a>
+	</div>
+
+
+
+
+	<div class="mx-auto mt-4 w-50">
+		<table class="table table-striped table-hover">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Gender</th>
+					<th>Age</th>
+					<th>DOB</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var item in Model)
+				{
+					<tr>
+						<td>@Html.ActionLink(@item.Name, "MoreDetails", "Home", new { id = item.Id }, null)</td>
+						<td>@item.Gender</td>
+						<td>@item.Age</td>
+						<td>@item.DOB.ToString("dd-MM-yyyy")</td>
+						<td>
+							<a asp-action="DeleteData" asp-route-id="@item.Id">
+								<button class="btn btn-outline-danger">Delete</button>
+							</a>
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+</div>

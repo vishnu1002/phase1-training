@@ -1,0 +1,52 @@
+﻿@{
+	ViewData["Title"] = "Book Tickets";
+}
+
+@model CoolieModel
+
+<div class="text-center">
+	<h2 class="mt-4">Book Tickets Now!</h2>
+</div>
+
+<div class="mt-4 d-flex justify-content-center">
+	<form asp-action="AddData" class="p-3 border rounded w-25" style="min-width: 300px;">
+		<div class="mb-3">
+			<label class="form-label">Name</label>
+			<input type="text" class="form-control form-control-sm" asp-for="Name" placeholder="Enter your name" required />
+			<span asp-validation-for="Name" class="text-danger"></span>
+		</div>
+
+		<div class="mb-3">
+			<label class="form-label">Gender</label>
+			<div class="form-check form-check-inline">
+				<input type="radio" asp-for="Gender" value="Male" id="gender-male" class="form-check-input" required />
+				<label for="gender-male" class="form-check-label">Male</label>
+			</div>
+			<div class="form-check form-check-inline">
+				<input type="radio" asp-for="Gender" value="Female" id="gender-female" class="form-check-input" required />
+				<label for="gender-female" class="form-check-label">Female</label>
+			</div>
+			<span asp-validation-for="Gender" class="text-danger d-block"></span>
+		</div>
+
+		<div class="mb-3">
+			<label class="form-label">Age</label>
+			<input type="number" class="form-control form-control-sm" asp-for="Age" placeholder="Enter your age (min 5)" required />
+			<span asp-validation-for="Age" class="text-danger"></span>
+		</div>
+
+		<div class="mb-3">
+			<label class="form-label">DOB</label>
+			<input type="date" class="form-control form-control-sm" asp-for="DOB" placeholder="dd-mm-yyyy" required />
+			<span asp-validation-for="DOB" class="text-danger"></span>
+		</div>
+
+		<button type="submit" class="btn btn-success btn-sm w-100">Book Now</button>
+	</form>
+</div>
+
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}

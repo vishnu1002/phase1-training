@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Coolie Movie";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center align-items-start">
+        <div class="col-md-4 d-flex justify-content-center">
+            <img src="https://www.sunpictures.in/wp-content/uploads/2025/08/TL-Ann.png" alt="Coolie Poster" class="img-fluid rounded" style="max-width: 85%; height: auto;" />
+        </div>
+        <div class="col-md-5">
+            <h2 class="h4">Coolie</h2>
+            <p><strong>Genre:</strong> Action, Thriller</p>
+            <p><strong>Release Year:</strong> 2025</p>
+            <p><strong>Director:</strong> Lokesh Kanagaraj</p>
+            <p>
+                <strong>Cast:</strong> Rajinikanth, Nagarjuna Akkineni, Aamir Khan, Sathyaraj
+            </p>
+            <p><strong>Synopsis:</strong> A classic Bollywood action drama about a heroic porter who stands up against injustice.</p>
+            <a href="@Url.Action("BookTickets", "Home")" class="btn btn-success w-25 mt-3">Book Now</a>
+            @* <a class="nav-link text" asp-area="" asp-controller="Home" asp-action="ViewBooking">View Booking</a> *@
+        </div>
+    </div>
+</div>

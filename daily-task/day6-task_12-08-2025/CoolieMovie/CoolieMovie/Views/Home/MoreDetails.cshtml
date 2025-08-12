@@ -1,0 +1,30 @@
+﻿@{
+	ViewData["Title"] = "More Booking Details";
+}
+
+@model CoolieModel
+
+<div class="text-center">
+	<h2 class="mt-4">More Booking Details</h2>
+
+	<div class="mx-auto mt-4" style="width: 400px">
+		<table class="mt-4 table table-striped table-hover">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Gender</th>
+					<th>Age</th>
+					<th>DOB</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>@Model.Name</td>
+					<td>@Model.Gender</td>
+					<td>@Model.Age</td>
+					<td>@Model.DOB.ToString("dd-MM-yyyy")</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
